@@ -1,0 +1,148 @@
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148, 148, 148, 0.582) transparent;
+}
+
+.chat {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-flex: 0.70;
+      -ms-flex: 0.70;
+          flex: 0.70;
+}
+
+.chat__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 10px 20px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid lightgray;
+}
+
+.chat__header-info {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding-left: 20px;
+}
+
+.chat__header-info h3 {
+  font-weight: 500;
+}
+
+.chat__header-info p {
+  color: gray;
+  font-size: small;
+}
+
+.chat__body {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  background-image: url("https://res.cloudinary.com/practicaldev/image/fetch/s--WAKqnINn--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://thepracticaldev.s3.amazonaws.com/i/tw0nawnvo0zpgm5nx4fp.png");
+  background-repeat: repeat;
+  background-position: center;
+  padding: 30px 80px;
+  overflow-y: scroll;
+}
+
+.chat__message {
+  position: relative;
+  font-size: 15px;
+  padding: 10px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 10px;
+  background-color: white;
+  margin-bottom: 30px;
+  -webkit-box-shadow: 0px 0.5px 1px 0.5px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 0.5px 1px 0.5px rgba(0, 0, 0, 0.1);
+}
+
+.chat__message--sender::before {
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 10px solid transparent;
+  border-right: 10px solid white;
+  border-top: 10px solid white;
+  border-bottom: 10px solid transparent;
+  left: -13px;
+  top: 0px;
+}
+
+.chat__message--receiver {
+  margin-left: auto;
+  background-color: #dcf8c6;
+}
+
+.chat__message--receiver::before {
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 10px solid #dcf8c6;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #dcf8c6;
+  border-bottom: 10px solid transparent;
+  right: -13px;
+  top: 0px;
+}
+
+.chat__timestamp {
+  margin-left: 10px;
+  font-size: xx-small;
+  color: gray;
+}
+
+.chat__footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 62px;
+  border-top: 1px solid lightgray;
+}
+
+.chat__footer form {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.chat__footer form input {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  outline-width: 0;
+  border-radius: 30px;
+  padding: 10px;
+  border: none;
+}
+
+.chat__footer form button {
+  display: none;
+}
+
+.chat__footer .MuiSvgIcon-root {
+  padding: 2px;
+  color: gray;
+}

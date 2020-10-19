@@ -1,24 +1,47 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import "./App.css";
+import Sidebar from "./Sidebar";
+import Chat from "./Chat";
+import Pusher from "pusher-js";
+import axios from "./axios";
 
 function App() {
+  const [messages, setMessages] = useState([]);
+
+  useEffect(() => {
+    axios.get("/api/v1/messages/sync").then((response) => {
+      setMessages(response.data); // fetch all data once
+    });
+  }, []);
+
+  useEffect(() => {
+    const pusher = new Pusher("b1cb1342566699daa6c6", {
+      cluster: "ap1",
+    });
+
+    // open listener
+    const channel = pusher.subscribe("messages");
+    channel.bind("inserted", (newMessage) => {
+      // alert(JSON.stringify(newMessage));
+      setMessages([...messages, newMessage]); // keep old message and append new message
+    });
+
+    // close link to listener
+    return () => {
+      channel.unbind_all();
+      channel.unsubscribe();
+    };
+  }, [messages]); // dependencies
+
+  console.log(messages);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <div className="app__bg-green"></div>
+      <div className="app__body">
+        <Sidebar />
+        <Chat messages={messages} />
+      </div>
     </div>
   );
 }

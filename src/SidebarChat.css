@@ -1,0 +1,52 @@
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148, 148, 148, 0.582) transparent;
+}
+
+.sidebarChat {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 15px;
+  cursor: pointer;
+  border-bottom: 1px solid #f6f6f6;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.sidebarChat:hover {
+  background-color: #ebebeb;
+}
+
+.sidebarChat__info {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin-left: 15px;
+}
+
+.sidebarChat__info p {
+  color: gray;
+}
+
+.sidebarChat__name {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.sidebarChat__name h2 {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.sidebarChat__name p {
+  font-size: xx-small;
+}

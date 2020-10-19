@@ -1,0 +1,60 @@
+@import 'Init';
+
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    flex: 0.30;
+
+    &__header{
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 20px;
+        border-right: 1px solid lightgray;
+        align-items: center;
+
+        &-right{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-width: 10vh;
+
+            .MuiSvgIcon-root{
+                font-size: 24px !important;
+            }
+        }
+    }
+
+    &__search{
+        display: flex;
+        align-items: center;
+        background-color: $wgray;
+        height: 39px;
+        padding: 10px;
+
+        &-container{
+            display: flex;
+            align-items: center;
+            background-color: white;
+            width: 100%;
+            height: 35px;
+            border-radius: 20px;
+
+            .MuiSvgIcon-root{
+                color: gray;
+                padding: 10px;
+            }
+
+            input{
+                border: none;
+                outline-width: 0;
+                margin-left: 10px;
+            }
+        }
+    }
+
+    &__chat{
+        flex: 1;
+        background-color: white;
+        overflow-y: scroll;
+    }
+}

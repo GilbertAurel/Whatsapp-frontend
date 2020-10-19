@@ -1,0 +1,122 @@
+@import 'Init';
+
+.chat{
+    display: flex;
+    flex-direction: column;
+    flex: 0.70;
+
+    &__header{
+        display: flex;
+        padding: 10px 20px;
+        align-items: center;
+        border-bottom: 1px solid lightgray;
+    }
+
+    &__header-info{
+        flex: 1; //take all space
+        padding-left: 20px;
+
+        h3{
+            font-weight: 500;
+        }
+
+        p{
+            color: gray;
+            font-size: small;
+        }
+    }
+
+    &__body{
+        flex: 1;
+        background-image: url("https://res.cloudinary.com/practicaldev/image/fetch/s--WAKqnINn--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://thepracticaldev.s3.amazonaws.com/i/tw0nawnvo0zpgm5nx4fp.png");
+        background-repeat: repeat;
+        background-position: center;
+        padding: 30px 80px;
+        overflow-y: scroll;
+    }
+
+    &__message{
+        position: relative;
+        font-size: 15px;
+        padding: 10px;
+        width: fit-content;
+        border-radius: 10px;
+        background-color: white;
+        margin-bottom: 30px;
+        box-shadow: 0px .5px 1px .5px rgba(0, 0, 0, 0.1);
+
+        &--sender::before{
+            content: "";
+            width: 0px;
+            height: 0px;
+            position: absolute;
+            border-left: 10px solid transparent;
+            border-right: 10px solid white;
+            border-top: 10px solid white;
+            border-bottom: 10px solid transparent;
+            left: -13px;
+            top: 0px;
+        }
+
+        &--receiver{
+            margin-left: auto;
+            background-color: #dcf8c6;
+
+            &::before{
+                content: "";
+                width: 0px;
+                height: 0px;
+                position: absolute;
+                border-left: 10px solid #dcf8c6;
+                border-right: 10px solid transparent;
+                border-top: 10px solid #dcf8c6;
+                border-bottom: 10px solid transparent;
+                right: -13px;
+                top: 0px;
+            }
+        }
+    }
+
+    &__timestamp{
+        margin-left: 10px;
+        font-size: xx-small;
+        color: gray;
+    }
+
+    // &__name{
+    //     position: absolute;
+    //     top: -15px;
+    //     font-weight: 800;
+    //     font-size: xx-small;
+    // }
+
+    &__footer{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 62px;
+        border-top: 1px solid lightgray;
+
+        form{
+            flex: 1;
+            display: flex;
+
+            input{
+                flex: 1;
+                outline-width: 0;
+                border-radius: 30px;
+                padding: 10px;
+                border: none;
+            }
+
+            button{
+                display: none;
+            }
+        }
+
+        .MuiSvgIcon-root{
+            padding: 2px;
+            color: gray;
+        }
+    }
+}
